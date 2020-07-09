@@ -21,7 +21,7 @@ const game = document.querySelector('#game'),
       guessBtn = document.querySelector('#guess-btn'),
       guessInput = document.querySelector('#guess-input'),
       message = document.querySelector('.message'); 
-      
+let count = 0;
 // Assign UI min max --   
 minNum.textContent = min;
 maxNum.textContent = max;   
@@ -29,8 +29,14 @@ maxNum.textContent = max;
 // Listen for guess
 guessBtn.addEventListener('click', function(){
   let guess = parseInt(guessInput.value);
-  console.log(guess);
-
+  count += 1;
+  if (count >= 3){
+    setMessage(`3 gueses are the limit start over`, 'red')
+    game.reset()
+    guessInput.value = '';
+  }
+  
+  console.log(count);
   // Validate -- could also use 'guess !== guess' instead of 'isNaN(guess)' to test for nothing eneterd
   if (isNaN(guess) || guess < min || guess > max){
     setMessage(`Please enter a number between ${min} and ${max}.`, 'red');
@@ -48,3 +54,4 @@ function setMessage(msg, color) {
   message.style.color = color;
   message.textContent = msg;
 }
+
