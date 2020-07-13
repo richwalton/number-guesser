@@ -22,48 +22,69 @@ const game = document.querySelector('#game'),
       guessBtn = document.querySelector('#guess-btn'),
       guessInput = document.querySelector('#guess-input'),
       message = document.querySelector('.message'); 
-let count = 0;
+
 // Assign UI min max --   
 minNum.textContent = min;
 maxNum.textContent = max;
- 
+
+
+ // ******* --- My intial version based on requirements above --- ***********
+// Listen for guess
+// guessBtn.addEventListener('click', function(){
+//   let guess = parseInt(guessInput.value);
+//   replayMes.textContent = '';
+//   guessesLeft = guessesLeft-1;
+  
+//   //RW * - Validation - Could also use 'guess !== guess' instead of 'isNaN(guess)' to test for nothing eneterd
+//   if (isNaN(guess) || guess < min || guess > max){
+//     setMessage(`Please enter a number between ${min} and ${max}.`, 'red');
+//   } else if(guess !== winningNum && guessesLeft === 0){
+//     setMessage(`Sorry you lose, winning number is ${winningNum} press reset`, 'red');
+//     startOver();
+//     // guessesLeft = 3
+//   } else if(guess !== winningNum && guess < winningNum){
+//     setMessage(`Too low: you have ${guessesLeft} more tries`, 'black');
+//   } else if(guess !== winningNum && guess > winningNum) {
+//     setMessage(`Too high: you have ${guessesLeft} more tries`, 'black');
+//   } else if(guess === winningNum){
+//     setMessage(`YOU WIN!`, 'green');
+//     startOver();
+//     // guessesLeft = 3
+//   } 
+//   guessInput.value = '';
+// });
+// // create elements and styling for start over
+// let gamePara = document.querySelector('#game p');
+// let replayMes = document.createElement('p');
+
+// // start rover function
+// function startOver(){
+//   guessInput.value = '';
+//   guessesLeft = 3;
+//   replayMes.textContent = `If you like to play again enter a new number`;
+//   replayMes.style.color = 'green';
+//   gamePara.appendChild(replayMes);
+  
+// }
+// // Set message function
+// function setMessage(msg, color) {
+//   message.style.color = color;
+//   message.textContent = msg;
+// }
+
+
+// ******* --- Brads version based on requirements above --- ***********
 // Listen for guess
 guessBtn.addEventListener('click', function(){
   let guess = parseInt(guessInput.value);
-  replayMes.textContent = '';
-  guessesLeft = guessesLeft-1;
-  
-  // Validate -- could also use 'guess !== guess' instead of 'isNaN(guess)' to test for nothing eneterd
+
+  //Validation
   if (isNaN(guess) || guess < min || guess > max){
-    setMessage(`Please enter a number between ${min} and ${max}.`, 'red');
-  } else if(guess !== winningNum && guessesLeft === 0){
-    setMessage(`Sorry you lose, winning number is ${winningNum} press reset`, 'red');
-    startOver();
-    // guessesLeft = 3
-  } else if(guess !== winningNum && guess < winningNum){
-    setMessage(`Too low: you have ${guessesLeft} more tries`, 'black');
-  } else if(guess !== winningNum && guess > winningNum) {
-    setMessage(`Too high: you have ${guessesLeft} more tries`, 'black');
-  } else if(guess === winningNum){
-    setMessage(`YOU WIN!`, 'green');
-    startOver();
-    // guessesLeft = 3
-  } 
-  guessInput.value = '';
-});
+        setMessage(`Please enter a number between ${min} and ${max}.`, 'red');
+  }
+}); 
 
-let gamePara = document.querySelector('#game p');
-let replayMes = document.createElement('p');
-
-function startOver(){
-  guessInput.value = '';
-  guessesLeft = 3;
-  replayMes.textContent = `If you like to play again enter a new number`;
-  replayMes.style.color = 'green';
-  gamePara.appendChild(replayMes);
-  
-}
-
+// set message 
 function setMessage(msg, color) {
   message.style.color = color;
   message.textContent = msg;
