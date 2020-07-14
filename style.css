@@ -1,0 +1,38 @@
+body {
+    box-sizing: border-box;
+    color: rgb(147, 59, 1);
+    font-size: 2.2em;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-wrapper {
+    background-color: rgba(255, 175, 113, 0.803);
+    padding: 2em;
+    margin-top: 10%;
+    border-radius:6px;
+}
+
+h1 {
+    font-size: 1.7em;
+    margin-bottom:.3em;
+}
+
+#guess-btn {
+    color: white;
+    background-color: rgb(150, 31, 31);
+}
+
+#guess-btn:hover {
+    background-color: rgb(175, 10, 10);
+}
+
+.message {
+    font-size: .7em;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 5px 0px 5px 10px;
+}
