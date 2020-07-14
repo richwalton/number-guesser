@@ -143,8 +143,6 @@ function gameOver(won, msg) {
 
 // set message 
 function setMessage(msg, color) {
-  
-  message.style.color = color;
   message.textContent = msg;
   message.setAttribute('style', `color: ${color}; background-color:rgb(255, 208, 172); border: 1px solid rgb(250, 180, 126);`)
 }
